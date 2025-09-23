@@ -1,1 +1,32 @@
-<p>backlog-container works!</p>
+<div class="backlog-container">
+  <div class="backlog-header">
+    <div class="header-left">
+      <span class="dropdown-icon">▼</span>
+      <h3 class="backlog-title">
+        Backlog <span class="work-items">({{ workItemsCount }} work items)</span>
+      </h3>
+    </div>
+    <div class="backlog-controls">
+      <div class="item-count blue">0</div>
+      <div class="item-count purple">0</div>
+      <div class="item-count green">0</div>
+      <button class="create-sprint-button" (click)="onCreateSprint()">Create sprint</button>
+    </div>
+  </div>
+  <div class="backlog-content">
+    <ng-container *ngIf="workItemsCount === 0; else backlogList">
+      <div class="backlog-empty-message">
+        Your backlog is empty.
+      </div>
+    </ng-container>
+
+    <ng-template #backlogList>
+      </ng-template>
+  </div>
+  <div class="backlog-footer">
+    <button class="create-button" (click)="onCreateWorkItem()">
+      <span class="plus-icon">+</span>
+      Create
+    </button>
+  </div>
+</div>
