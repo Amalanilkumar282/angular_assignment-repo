@@ -1,0 +1,82 @@
+<div class="modal is-active">
+  <div class="modal-background" (click)="onClose()"></div>
+
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Create Epic</p>
+      <button class="delete" aria-label="close" (click)="onClose()"></button>
+    </header>
+
+    <section class="modal-card-body">
+      <div class="field">
+        <label class="label">Summary</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Enter epic summary" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Description</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Enter epic description"></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Status</label>
+        <div class="control">
+          <div class="select is-fullwidth">
+            <select>
+              <option>To do</option>
+              <option>In progress</option>
+              <option>Done</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Assignee</label>
+        <div class="control">
+          <div class="select is-fullwidth">
+            <select>
+              <option>Unassigned</option>
+              <option>Kiran</option>
+              <option>Paulson</option>
+              <option>Admin</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control is-expanded">
+          <label class="label">Start Date</label>
+          <input class="input" type="date" />
+        </div>
+        <div class="control is-expanded">
+          <label class="label">Due Date</label>
+          <input class="input" type="date" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Choose Team</label>
+        <div class="control">
+          <div class="select is-fullwidth">
+            <select>
+              <option>Team A</option>
+              <option>Team B</option>
+              <option>Team C</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="modal-card-foot">
+      <button class="button is-success" (click)="onClose()">Create Epic</button>
+      <button class="button" (click)="onClose()">Cancel</button>
+    </footer>
+  </div>
+</div>
