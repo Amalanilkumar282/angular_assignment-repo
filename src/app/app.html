@@ -1,8 +1,3 @@
+<button (click)="openCreateEpic()" class="button is-primary">Create Epic</button>
 
-<div>
-    <app-sprint-container></app-sprint-container>
-    
-</div>
-<div>
-    <app-backlog-container></app-backlog-container>
-</div>
+<app-create-epic *ngIf="showCreateEpic" (close)="closeCreateEpic()"></app-create-epic>
