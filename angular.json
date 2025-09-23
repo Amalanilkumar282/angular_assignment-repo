@@ -22,7 +22,9 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/bulma/css/bulma.css"
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",
@@ -86,5 +88,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "8db04b04-030d-4223-80aa-6e18e0e6f125"
   }
 }
