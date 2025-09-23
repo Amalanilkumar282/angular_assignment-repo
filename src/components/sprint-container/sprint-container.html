@@ -3,7 +3,7 @@
     <div class="header-left">
       <span class="dropdown-icon">▼</span>
       <h3 class="backlog-title">
-        Backlog <span class="work-items">({{ workItemsCount }} work items)</span>
+        SCRUM Sprint <span class="work-items">({{ workItemsCount }} work items)</span>
       </h3>
     </div>
     <div class="backlog-controls">
@@ -16,7 +16,7 @@
   <div class="backlog-content">
     <ng-container *ngIf="workItemsCount === 0; else backlogList">
       <div class="backlog-empty-message">
-        Your backlog is empty.
+        Plan a sprint by dragging items into it.
       </div>
     </ng-container>
 

@@ -1,12 +1,15 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { BacklogContainerComponent } from "../components/backlog-container/backlog-container";
+import { SprintContainerComponent } from "../components/sprint-container/sprint-container";
+
 import { StoryPopup } from '../components/story-popup/story-popup';  
 import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, StoryPopup,NgIf],
+  standalone: true,
+  imports: [BacklogContainerComponent, SprintContainerComponent, StoryPopup,NgIf],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class App {
   protected readonly title = signal('angular_assignment-repo');

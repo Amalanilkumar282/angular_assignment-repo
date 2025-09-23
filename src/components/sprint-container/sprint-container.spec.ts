@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BacklogContainerComponent } from './backlog-container';
+import { SprintContainerComponent } from './sprint-container';
 
-describe('BacklogContainerComponent', () => {
-  let component: BacklogContainerComponent;
-  let fixture: ComponentFixture<BacklogContainerComponent>;
+describe('SprintContainerComponent', () => {
+  let component: SprintContainerComponent;
+  let fixture: ComponentFixture<SprintContainerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BacklogContainerComponent ]
+      declarations: [ SprintContainerComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BacklogContainerComponent);
+    fixture = TestBed.createComponent(SprintContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
