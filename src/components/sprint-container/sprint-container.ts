@@ -1,18 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgIf } from '@angular/common';
+import { IssueService, Issue } from '../../services/issue.service';
+import { IssueList } from '../issue-list/issue-list';
 
 @Component({
   selector: 'app-sprint-container',
   standalone: true,
-  imports: [NgIf],
+  imports: [NgIf, IssueList],
   templateUrl: './sprint-container.html',
   styleUrls: ['./sprint-container.css']
 })
-export class SprintContainerComponent {
+export class SprintContainerComponent implements OnInit {
 
-  workItemsCount: number = 0; // Initialize with 0 for the empty state
+  workItemsCount: number = 0;
+  sprintIssues: Issue[] = [];
 
-  constructor() { }
+  constructor(private issueService: IssueService) { }
+
+  ngOnInit(): void {
+    this.loadSprintIssues();
+  }
+
+  private loadSprintIssues(): void {
+    this.sprintIssues = this.issueService.getSprintIssues();
+    this.workItemsCount = this.sprintIssues.length;
+  }
 
   /**
    * Handles the "Create sprint" button click.
