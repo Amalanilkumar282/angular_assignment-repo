@@ -1,2 +1,47 @@
 
 <app-create-epic *ngIf="showCreateEpic" (close)="closeCreateEpic()"></app-create-epic>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<button (click)="showPopup = true">Create Story</button>
+
+<app-story-popup *ngIf="showPopup" (close)="showPopup = false"></app-story-popup>
