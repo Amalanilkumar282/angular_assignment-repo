@@ -1,47 +1,10 @@
-
-<app-create-epic *ngIf="showCreateEpic" (close)="closeCreateEpic()"></app-create-epic>
-
+<app-navbar></app-navbar>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<button (click)="showPopup = true">Create Story</button>
-
-<app-story-popup *ngIf="showPopup" (close)="showPopup = false"></app-story-popup>
+<div>
+    <app-sprint-container></app-sprint-container>
+    
+</div>
+<div>
+    <app-backlog-container></app-backlog-container>
+</div>

@@ -4,11 +4,12 @@ import { SprintContainerComponent } from '../components/sprint-container/sprint-
 
 import { CreateEpic } from '../components/create-epic/create-epic';
 import { NgIf } from '@angular/common';
-import { StoryPopup } from '../components/story-popup/story-popup';  
+import { StoryPopup } from '../components/story-popup/story-popup';  import {Navbar} from '../components/navbar/navbar';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [BacklogContainerComponent, SprintContainerComponent, CreateEpic, NgIf, StoryPopup,NgIf],
+  imports: [BacklogContainerComponent, SprintContainerComponent, CreateEpic, NgIf, StoryPopup,NgIf, Navbar],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
