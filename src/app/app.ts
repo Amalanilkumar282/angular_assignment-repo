@@ -4,16 +4,17 @@ import { SprintContainerComponent } from '../components/sprint-container/sprint-
 
 import { CreateEpic } from '../components/create-epic/create-epic';
 import { NgIf } from '@angular/common';
-
+import { StoryPopup } from '../components/story-popup/story-popup';  
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [BacklogContainerComponent, SprintContainerComponent, CreateEpic, NgIf],
+  imports: [BacklogContainerComponent, SprintContainerComponent, CreateEpic, NgIf, StoryPopup,NgIf],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
 export class App {
   protected readonly title = signal('angular_assignment-repo');
+   showPopup = false;
 
   showCreateEpic = false;
 
