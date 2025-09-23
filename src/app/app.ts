@@ -5,7 +5,6 @@ import { SprintContainerComponent } from '../components/sprint-container/sprint-
 import { CreateEpic } from '../components/create-epic/create-epic';
 import { NgIf } from '@angular/common';
 import { StoryPopup } from '../components/story-popup/story-popup';  
-import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-root',
   standalone: true,
