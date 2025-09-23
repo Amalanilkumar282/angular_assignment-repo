@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-backlog-container',
+  selector: 'app-sprint-container',
   standalone: true,
   imports: [NgIf],
-  templateUrl: './backlog-container.html',
-  styleUrls: ['./backlog-container.css']
+  templateUrl: './sprint-container.html',
+  styleUrls: ['./sprint-container.css']
 })
-export class BacklogContainerComponent {
+export class SprintContainerComponent {
 
   workItemsCount: number = 0; // Initialize with 0 for the empty state
 
