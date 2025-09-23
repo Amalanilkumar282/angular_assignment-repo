@@ -1,1 +1,57 @@
-<p>story-popup works!</p>
+ 
+<div class="popup-overlay" (click)="closePopup()">
+<div class="popup" (click)="$event.stopPropagation()">
+    <h2>Create User Story</h2>
+
+    <div class="field">
+      <label>Summary / Title:</label>
+      <input type="text" />
+    </div>
+
+    <div class="field">
+      <label>Description:</label>
+      <textarea></textarea>
+    </div>
+
+    <div class="field">
+      <label>Acceptance Criteria:</label>
+      <textarea></textarea>
+    </div>
+
+    <div class="field">
+      <label>Story Points:</label>
+      <input type="number" min="1" />
+    </div>
+
+    <div class="field">
+      <label>Priority:</label>
+      <select>
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Start Date:</label>
+      <input type="date" />
+    </div>
+
+    <div class="field">
+      <label>End Date:</label>
+      <input type="date" />
+    </div>
+
+    <div class="field">
+      <label>Assignee:</label>
+      <input type="text" />
+    </div>
+
+     
+
+    <div class="actions">
+      <button (click)="submitForm()">Create</button>
+      <button (click)="closePopup()">Cancel</button>
+    </div>
+  </div>
+</div>

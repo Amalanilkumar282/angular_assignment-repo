@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter,Output } from '@angular/core';
 
 @Component({
   selector: 'app-story-popup',
@@ -7,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrl: './story-popup.css'
 })
 export class StoryPopup {
+   @Output() close = new EventEmitter<void>();
+   closePopup() {
+    this.close.emit();
+  }
 
+  
+  submitForm() {
+    // Just close the popup
+    this.closePopup();
+  }
 }
