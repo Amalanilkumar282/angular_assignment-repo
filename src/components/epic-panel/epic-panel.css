@@ -1,0 +1,9 @@
+:host {
+  display: block;
+  width: 250px;      
+  max-width: 100%;    
+}
+
+.box {
+  padding: 12px;     
+}

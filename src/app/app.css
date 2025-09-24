@@ -1,0 +1,13 @@
+.backlog-body{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.backlog{
+    width: 80%;
+}
+
+.epic-panel{
+    margin: 20px;
+}
