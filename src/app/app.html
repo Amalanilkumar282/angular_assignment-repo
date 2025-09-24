@@ -1,4 +1,4 @@
-<app-navbar (createStory)="openStoryPopup()"></app-navbar>
+<app-navbar (createStory)="openStoryPopup()"  (createEpic)="openCreateEpic()"></app-navbar>
 
 
 <div>
@@ -14,3 +14,4 @@
 
 <app-story-popup  *ngIf="showStoryPopup" 
                  (close)="closeStoryPopup()"></app-story-popup>
+<app-create-epic *ngIf="showCreateEpic" (close)="closeCreateEpic()"></app-create-epic>
