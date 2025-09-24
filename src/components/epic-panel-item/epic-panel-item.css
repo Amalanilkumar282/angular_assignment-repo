@@ -4,3 +4,7 @@
   margin: auto 0.5rem;
   background: #c084fc;
 }
+
+.progress{
+  height: 5px;
+}

@@ -1,6 +1,6 @@
 <div class="card epic-item">
   <header class="card-header">
-    <button class="button is-white is-small">
+    <button (click) = "onDropDownClick()" type="button" class="button is-white is-small">
       <span class="icon is-small">
         <i class="fa-solid fa-chevron-down"></i>
       </span>
@@ -8,7 +8,7 @@
 
     <span class="tag epic-header-color"></span>
 
-    <p class="card-header-title is-size-6">{{ title }}</p>
+    <p class="card-header-title is-size-7">{{ title }}</p>
 
     <button class="button is-white is-small">
       <span class="icon is-small">
@@ -16,23 +16,23 @@
       </span>
     </button>
   </header>
-
-  <!-- progress bar -->
-  <div class="card-content">
-    <progress
+  <div class="progress-container">   
+  <progress
       class="progress is-small is-success"
       [value]="progress"
       max="100">
     </progress>
+</div> 
+  <div *ngIf = "isDropDown" class="card-content">
 
-    <!-- dates -->
+
     <div class="content is-size-7">
       <p class="has-text-grey">Start date</p>
       <p>{{ startDate }}</p>
       <p class="has-text-grey">Due date</p>
       <p>{{ dueDate }}</p>
     </div>
-    <!-- details button -->
+
     <button class="button is-light is-fullwidth is-small">
       View all details
     </button>

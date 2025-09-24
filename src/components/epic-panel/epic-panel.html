@@ -2,14 +2,13 @@
 <div class="box">
   <div class="level">
     <div class="level-left">
-      <p class="title is-6">Epic</p>
+      <p class="title is-6">Epics</p>
     </div>
-    <div class="level-right">
-      <button class="button is-light is-small">No epic</button>
-    </div>
+    <!-- <div class="level-right"> -->
+      <!-- <button class="button is-light is-small">No epic</button> -->
+    <!-- </div> -->
   </div>
 
-  <!-- Epic items -->
   <app-epic-panel-item
     *ngFor="let epic of epics"
     [title]="epic.title"
