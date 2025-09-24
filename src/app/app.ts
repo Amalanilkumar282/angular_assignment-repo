@@ -28,5 +28,14 @@ export class App {
     this.showCreateEpic = false;
     console.log('Create Epic modal closed');
   }
+  showStoryPopup = false;
+
+  openStoryPopup() {
+    this.showStoryPopup = true;
+  }
+
+  closeStoryPopup() {
+    this.showStoryPopup = false;
+  }
 }
 //kiran

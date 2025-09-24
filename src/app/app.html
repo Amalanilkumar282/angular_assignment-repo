@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar (createStory)="openStoryPopup()"></app-navbar>
 
 
 <div>
@@ -10,7 +10,7 @@
 </div>
 
 
+<!-- L<button (click)="showPopup = true">Create Story</button> -->
 
-<button (click)="showPopup = true">Create Story</button>
-
-<app-story-popup *ngIf="showPopup" (close)="showPopup = false"></app-story-popup>
+<app-story-popup  *ngIf="showStoryPopup" 
+                 (close)="closeStoryPopup()"></app-story-popup>
