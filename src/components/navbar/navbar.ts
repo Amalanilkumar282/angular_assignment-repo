@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,EventEmitter,Output} from '@angular/core';
 
 
 @Component({
@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.css'
 })
 export class Navbar {
+  @Output() createStory = new EventEmitter<void>();
 
+  onCreateStoryClick() {
+    console.log('Navbar: Create Story clicked');
+    this.createStory.emit();
+  }
 }
