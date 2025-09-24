@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { EpicPanelItem } from '../epic-panel-item/epic-panel-item';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-epic-panel',
-  imports: [EpicPanelItem,NgFor],
+  imports: [EpicPanelItem,NgFor,NgIf],
   templateUrl: './epic-panel.html',
   styleUrl: './epic-panel.css'
 })
 export class EpicPanel {
+  isCreateClicked = false;
  epics = [
     {
       title: 'Photo Gallery',
@@ -29,5 +30,9 @@ export class EpicPanel {
       dueDate: 'September 8,2025'
     }
   ]
+
+  onCreateClick(){
+    this.isCreateClicked = !this.isCreateClicked;
+  }
 };
 

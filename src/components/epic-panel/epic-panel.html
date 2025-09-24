@@ -16,4 +16,7 @@
     [startDate]="epic.startDate"
     [dueDate]="epic.dueDate">
   </app-epic-panel-item>
+  <button *ngIf = "!isCreateClicked" (click) = "onCreateClick()"> + Create Epic </button>
+<input>
 </div>
+

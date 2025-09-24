@@ -1,0 +1,140 @@
+<div class="flex justify-center m-5">
+  <button
+    (click)="openModal()"
+    class="block text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#1d4ed8]"
+    type="button"
+  >
+    Update product
+  </button>
+</div>
+
+<!-- Issue View -->
+<div
+  *ngIf="isModalOpen"
+  class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-start w-full md:inset-0 h-modal md:h-full bg-black/50"
+>
+  <div class="relative p-4 w-full max-w-3xl h-full md:h-auto">
+    <!-- Modal content -->
+    <div class="relative p-4 bg-white rounded-lg shadow sm:p-6">
+      <!-- Modal header -->
+      <div class="flex justify-between items-center pb-4 mb-4 border-b">
+        <h3 class="text-lg font-semibold text-gray-900">{{ issue.title }}</h3>
+        <button
+          type="button"
+          (click)="closeModal()"
+          class="text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5"
+        >
+          ✕
+        </button>
+      </div>
+
+      <!-- Issue Meta Info -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <label class="block text-sm font-medium text-gray-500">Assignee</label>
+          <p class="mt-1 text-gray-900 font-medium">{{ issue.assignee }}</p>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-500">Priority</label>
+          <p class="mt-1">
+            <span class="px-2 py-1 text-xs rounded bg-yellow-100 text-yellow-800">{{
+              issue.priority
+            }}</span>
+          </p>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-500">Status</label>
+          <p class="mt-1">
+            <span class="px-2 py-1 text-xs rounded bg-green-100 text-green-800">{{
+              issue.status
+            }}</span>
+          </p>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-500">Due Date</label>
+          <p class="mt-1 text-gray-900">{{ issue.dueDate | date }}</p>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-500">Sprint</label>
+          <p class="mt-1 text-gray-900">{{ issue.sprint }}</p>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-500">Story Points</label>
+          <p class="mt-1 text-gray-900">{{ issue.storyPoints }}</p>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-6">
+        <label class="block text-sm font-medium text-gray-500">Description</label>
+        <p class="mt-2 text-gray-700">{{ issue.description }}</p>
+      </div>
+
+      <!-- Subtasks -->
+      <div class="mb-6">
+        <label class="block text-sm font-medium text-gray-500">Subtasks</label>
+        <ul class="mt-2 space-y-2">
+          <li
+            *ngFor="let sub of issue.subtasks"
+            class="flex items-center justify-between bg-gray-50 px-3 py-2 rounded"
+          >
+            <span>{{ sub.title }}</span>
+            <span
+              class="text-xs px-2 py-1 rounded"
+              [ngClass]="{
+                'bg-green-100 text-green-800': sub.status === 'Done',
+                'bg-blue-100 text-blue-800': sub.status === 'In Progress',
+                'bg-gray-200 text-gray-700': sub.status === 'To Do'
+              }"
+              >{{ sub.status }}</span
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Connected Work Items -->
+      <div class="mb-6">
+        <label class="block text-sm font-medium text-gray-500">Connected Work Items</label>
+        <ul class="mt-2 space-y-2">
+          <li
+            *ngFor="let work of issue.connectedItems"
+            class="flex justify-between items-center border p-2 rounded"
+          >
+            <span class="font-medium">{{ work.key }}</span>
+            <span class="text-sm text-gray-500">{{ work.type }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Activity / Comments -->
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-500">Activity</label>
+        <div class="mt-2 space-y-4">
+          <div *ngFor="let c of issue.comments" class="border p-2 rounded">
+            <p class="text-sm text-gray-700">
+              <b>{{ c.author }}:</b> {{ c.text }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer actions -->
+      <div class="flex justify-end space-x-2">
+        <button
+          type="button"
+          (click)="onEdit()"
+          class="text-white bg-[#1d4ed8] hover:bg-[#1e40af] font-medium rounded-lg text-sm px-5 py-2.5"
+        >
+          Edit
+        </button>
+        <button
+          type="button"
+          (click)="onDelete()"
+          class="text-red-600 border border-red-600 hover:bg-red-600 hover:text-white font-medium rounded-lg text-sm px-5 py-2.5"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

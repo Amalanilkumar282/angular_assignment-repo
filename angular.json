@@ -81,13 +81,14 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ]
+            "styles": ["src/styles.css"]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "9e242da6-8cd6-433a-b618-cbb1c8775b9e"
   },
   "cli": {
     "analytics": "8db04b04-030d-4223-80aa-6e18e0e6f125"

@@ -1,0 +1,25 @@
+<nav class="navbar">
+  <div class="navbar-left">
+    <div class="logo">MyApp</div>
+  </div>
+  <div class="navbar-center">
+    <input type="text" placeholder="Search..." class="search-bar" />
+  </div>
+  <div class="navbar-right">
+    <button class="nav-btn">Create Epic</button>
+    <!-- <button class="nav-btn">Create Story</button> -->
+     <button class="nav-btn" (click)="onCreateStoryClick()">Create Story</button>
+    <button class="icon-btn">
+      <span class="material-icons">notifications</span>
+    </button>
+    <button class="icon-btn">
+      <span class="material-icons">help_outline</span>
+    </button>
+    <button class="icon-btn">
+      <span class="material-icons">settings</span>
+    </button>
+    <div class="profile">
+      <img src="assets/profile.jpg" alt="User" />
+    </div>
+  </div>
+</nav>

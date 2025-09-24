@@ -1,1 +1,17 @@
-<app-epic-panel></app-epic-panel>
+<app-navbar (createStory)="openStoryPopup()"></app-navbar>
+<div class="backlog-body">
+    <div class="epic-panel">
+        <app-epic-panel></app-epic-panel>
+    </div>
+    <div class="backlog">
+        <div>
+            <app-sprint-container></app-sprint-container>
+        </div>
+        <div>
+            <app-backlog-container></app-backlog-container>
+        </div>
+    </div>
+</div>
+<!-- L<button (click)="showPopup = true">Create Story</button> -->
+
+<app-story-popup *ngIf="showStoryPopup" (close)="closeStoryPopup()"></app-story-popup>
