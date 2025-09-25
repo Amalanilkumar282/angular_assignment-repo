@@ -1,0 +1,169 @@
+<!-- Issue View Modal -->
+<div *ngIf="isModalOpen" class="modal is-active">
+  <div class="modal-background" (click)="handleClose()"></div>
+  <div class="modal-card">
+    <!-- Modal header -->
+    <header class="modal-card-head">
+      <p class="modal-card-title">{{ issue?.title }}</p>
+      <button type="button" class="delete" aria-label="close" (click)="handleClose()"></button>
+    </header>
+
+    <!-- Modal body -->
+    <section class="modal-card-body">
+      <!-- Issue Meta Info -->
+      <div class="columns is-multiline mb-5">
+        <div class="column is-half">
+          <label class="label">Assignee</label>
+          <p class="has-text-weight-medium">{{ issue?.assignee }}</p>
+        </div>
+        <div class="column is-half">
+          <label class="label">Priority</label>
+          <span class="tag is-warning">{{ issue?.priority }}</span>
+        </div>
+        <div class="column is-half">
+          <label class="label">Status</label>
+          <span class="tag is-success">{{ issue?.status }}</span>
+        </div>
+        <div class="column is-half">
+          <label class="label">Due Date</label>
+          <p>{{ issue?.dueDate | date }}</p>
+        </div>
+        <div class="column is-half">
+          <label class="label">Sprint</label>
+          <p>{{ issue?.sprint }}</p>
+        </div>
+        <div class="column is-half">
+          <label class="label">Story Points</label>
+          <p>{{ issue?.storyPoints }}</p>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-5">
+        <label class="label">Description</label>
+        <p>{{ issue?.description }}</p>
+      </div>
+
+      <!-- Subtasks -->
+      <div class="mb-5">
+        <label class="label">Subtasks</label>
+        <ul>
+          <li
+            *ngFor="let sub of issue?.subtasks"
+            class="box is-flex is-justify-content-space-between is-align-items-center"
+          >
+            <span>{{ sub.title }}</span>
+            <span
+              class="tag"
+              [ngClass]="{
+                'is-success': sub.status === 'Done',
+                'is-info': sub.status === 'In Progress',
+                'is-light': sub.status === 'To Do'
+              }"
+              >{{ sub.status }}</span
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Connected Work Items -->
+      <div class="mb-5">
+        <label class="label">Connected Work Items</label>
+        <ul>
+          <li
+            *ngFor="let work of issue?.connectedItems"
+            class="box is-flex is-justify-content-space-between is-align-items-center"
+          >
+            <span class="has-text-weight-semibold">{{ work.key }}</span>
+            <span class="is-size-7 has-text-grey">{{ work.type }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Activity / Comments -->
+      <div class="mb-5">
+        <label class="label">Activity</label>
+        <div>
+          <div *ngFor="let c of issue?.comments" class="box">
+            <p class="is-size-7">
+              <b>{{ c.author }}:</b> {{ c.text }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer actions -->
+    <footer class="modal-card-foot is-justify-content-flex-end">
+      <button type="button" class="button is-link mr-4" (click)="onEdit()">Edit</button>
+      <button type="button" class="button is-danger is-outlined" (click)="onDelete()">
+        Delete
+      </button>
+    </footer>
+  </div>
+</div>
+
+<!-- Epic Details Corner Window with overlay to close on outside click -->
+<div *ngIf="showEpicDetails" class="epic-details-overlay" (click)="closeEpicDetails()">
+  <div class="epic-details-window" (click)="$event.stopPropagation()">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title is-size-6">Epic Details</p>
+        <button class="card-header-icon" aria-label="close" (click)="closeEpicDetails()">
+          <span class="icon">
+            <i class="fa-solid fa-times"></i>
+          </span>
+        </button>
+      </header>
+      <div class="card-content">
+        <div class="content is-small">
+          <div class="field">
+            <label class="label is-size-7">Epic Name</label>
+            <p class="has-text-weight-medium">{{ epicDetails.name }}</p>
+          </div>
+          
+          <div class="field">
+            <label class="label is-size-7">Progress</label>
+            <div class="progress-container">
+              <progress class="progress is-small is-primary" [value]="epicDetails.progress" max="100">
+                {{ epicDetails.progress }}%
+              </progress>
+              <span class="is-size-7 has-text-grey">{{ epicDetails.progress }}%</span>
+            </div>
+          </div>
+          
+          <div class="field">
+            <label class="label is-size-7">Start Date</label>
+            <p class="is-size-7">{{ epicDetails.startDate }}</p>
+          </div>
+          
+          <div class="field">
+            <label class="label is-size-7">Due Date</label>
+            <p class="is-size-7">{{ epicDetails.dueDate }}</p>
+          </div>
+          
+          <div class="field">
+            <label class="label is-size-7">Status</label>
+            <span class="tag is-small" [ngClass]="getStatusClass(epicDetails.status)">
+              {{ epicDetails.status }}
+            </span>
+          </div>
+          
+          <div class="field">
+            <label class="label is-size-7">Assignee</label>
+            <p class="is-size-7">{{ epicDetails.assignee }}</p>
+          </div>
+          
+          <div class="field">
+            <label class="label is-size-7">Description</label>
+            <p class="is-size-7 has-text-grey">{{ epicDetails.description }}</p>
+          </div>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <a class="card-footer-item is-size-7" (click)="viewFullDetails()">View Full Details</a>
+        <a class="card-footer-item is-size-7" (click)="editEpic()">Edit</a>
+      </footer>
+    </div>
+  </div>
+</div>
