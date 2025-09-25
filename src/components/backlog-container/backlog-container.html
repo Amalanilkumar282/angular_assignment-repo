@@ -21,7 +21,8 @@
     </ng-container>
 
     <ng-template #backlogList>
-      </ng-template>
+      <app-issue-list [issues]="backlogIssues"></app-issue-list>
+    </ng-template>
   </div>
   <div class="backlog-footer">
     <button class="create-button" (click)="onCreateWorkItem()">
