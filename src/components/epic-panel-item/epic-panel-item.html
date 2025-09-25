@@ -23,7 +23,6 @@
 </div> 
   <div *ngIf = "isDropDown" class="card-content">
 
-
     <div class="content is-size-7">
       <p class="has-text-grey">Start date</p>
       <p class="has-text-black is-6">{{ startDate }}</p>
@@ -31,7 +30,7 @@
       <p class="has-text-black">{{ dueDate }}</p>
     </div>
 
-    <button class="button is-light is-fullwidth is-small">
+    <button class="button is-light is-fullwidth is-small" (click)="onViewDetails()">
       View all details
     </button>
   </div>

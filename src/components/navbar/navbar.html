@@ -6,20 +6,26 @@
     <input type="text" placeholder="Search..." class="search-bar" />
   </div>
   <div class="navbar-right">
-    <button class="nav-btn">Create Epic</button>
+    <!-- <button class="nav-btn">Create Epic</button> -->
+      <button class="nav-btn" (click)="onCreateEpicClick()">Create Epic</button>
     <!-- <button class="nav-btn">Create Story</button> -->
      <button class="nav-btn" (click)="onCreateStoryClick()">Create Story</button>
     <button class="icon-btn">
-      <span class="material-icons">notifications</span>
+      <span class="material-icons" title="notifications">notifications</span>
     </button>
     <button class="icon-btn">
-      <span class="material-icons">help_outline</span>
+      <span class="material-icons" title="help">help_outline</span>
     </button>
     <button class="icon-btn">
-      <span class="material-icons">settings</span>
+      <span class="material-icons" title="settings">settings</span>
     </button>
-    <div class="profile">
-      <img src="assets/profile.jpg" alt="User" />
+    <div class="profile" title="User Profile">
+      <img src="assets/profile.jpg" alt="User" (click)="toggleProfileCard()" style="cursor:pointer;" />
+      <div *ngIf="showProfileCard" class="profile-card" style="position:absolute; right:0; top:50px; background:#fff; border:1px solid #ccc; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1); padding:16px; min-width:150px; z-index:100;">
+      <img [src]="userPhoto" alt="User" class="profile-card-photo" />
+      <div class="profile-card-name">{{userName}}</div>
+      <div class="profile-card-role">{{userRole}}</div>
+      </div>
     </div>
   </div>
 </nav>
