@@ -1,5 +1,5 @@
 <div class="issue-list">
-  <div *ngFor="let issue of issues" class="issue-item">
+  <div *ngFor="let issue of issues" (click)="openModal(issue)" class="issue-item">
     <div class="issue-header">
       <div class="issue-title">{{ issue.title }}</div>
       <div class="issue-meta">
@@ -11,20 +11,21 @@
         </span>
       </div>
     </div>
-    
+
     <div class="issue-body">
       <div class="issue-description">{{ issue.description }}</div>
       <div class="issue-details">
-        <div class="issue-assignee">
-          <strong>Assignee:</strong> {{ issue.assignee }}
-        </div>
-        <div class="issue-story-points">
-          <strong>Story Points:</strong> {{ issue.storyPoints }}
-        </div>
+        <div class="issue-assignee"><strong>Assignee:</strong> {{ issue.assignee }}</div>
+        <div class="issue-story-points"><strong>Story Points:</strong> {{ issue.storyPoints }}</div>
         <div class="issue-due-date">
-          <strong>Due:</strong> {{ issue.dueDate | date:'shortDate' }}
+          <strong>Due:</strong> {{ issue.dueDate | date : 'shortDate' }}
         </div>
       </div>
     </div>
   </div>
+  <app-issue-view
+    [issue]="selectedIssue"
+    [isModalOpen]="isModalOpen"
+    (closeModal)="closeModal()"
+  ></app-issue-view>
 </div>
