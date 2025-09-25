@@ -1,12 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
 import { EpicPanelItem } from '../epic-panel-item/epic-panel-item';
 import { EpicView } from '../epic-view/epic-view';
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf, TitleCasePipe } from '@angular/common';
 
 
 @Component({
   selector: 'app-epic-panel',
-  imports: [EpicPanelItem, EpicView, NgFor, NgIf],
+  imports: [EpicPanelItem, EpicView, NgFor, NgIf,TitleCasePipe],
   templateUrl: './epic-panel.html',
   styleUrl: './epic-panel.css'
 })

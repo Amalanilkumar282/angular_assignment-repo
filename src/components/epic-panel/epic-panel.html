@@ -10,7 +10,7 @@
 
   <app-epic-panel-item
     *ngFor="let epic of epics"
-    [title]="epic.title"
+    [title]="epic.title | titlecase"
     [progress]="epic.progress"
     [startDate]="epic.startDate"
     [dueDate]="epic.dueDate"
