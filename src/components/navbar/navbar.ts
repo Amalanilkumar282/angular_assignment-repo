@@ -4,9 +4,10 @@ import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
-  imports: [NgIf],
+  standalone: true,
+  imports: [],
   templateUrl: './navbar.html',
-  styleUrl: './navbar.css'
+  styleUrls: ['./navbar.css']
 })
 export class Navbar {
   @Output() createStory = new EventEmitter<void>();
