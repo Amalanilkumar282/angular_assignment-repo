@@ -10,6 +10,7 @@ import { NgFor, NgIf } from '@angular/common';
 })
 export class EpicPanel {
   isCreateClicked = false;
+  newEpic = '';
  epics = [
     {
       title: 'Photo Gallery',
@@ -25,7 +26,7 @@ export class EpicPanel {
     },
     {
       title: 'Login',
-      progress: 0,
+      progress: 100,
       startDate: 'September 4,2025',
       dueDate: 'September 8,2025'
     }
@@ -33,6 +34,20 @@ export class EpicPanel {
 
   onCreateClick(){
     this.isCreateClicked = !this.isCreateClicked;
+  }
+  onInput(event: Event){
+    var value = (event.target as HTMLInputElement).value;
+    this.newEpic = value;
+  }
+  onInputEnter(){
+    const newEpicObject = {
+      title: this.newEpic,
+      progress:0,
+      startDate: 'None',
+      dueDate: 'None'
+    }
+    this.epics.push(newEpicObject);
+    // console.log(this.epics);
   }
 };
 
