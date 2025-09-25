@@ -5,7 +5,7 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [],
+  imports: [NgIf],
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.css']
 })
