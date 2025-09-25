@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { EpicPanelItem } from '../epic-panel-item/epic-panel-item';
 import { NgFor, NgIf } from '@angular/common';
 
+
 @Component({
   selector: 'app-epic-panel',
   imports: [EpicPanelItem,NgFor,NgIf],
@@ -40,6 +41,7 @@ export class EpicPanel {
     this.newEpic = value;
   }
   onInputEnter(){
+    if (!this.newEpic.trim()) return;
     const newEpicObject = {
       title: this.newEpic,
       progress:0,
@@ -47,6 +49,7 @@ export class EpicPanel {
       dueDate: 'None'
     }
     this.epics.push(newEpicObject);
+    this.newEpic = '';
     // console.log(this.epics);
   }
 };

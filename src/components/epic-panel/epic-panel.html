@@ -17,7 +17,7 @@
     [dueDate]="epic.dueDate">
   </app-epic-panel-item>
   
-<input (input) = "onInput($event)" (keydown.enter) = "onInputEnter()" *ngIf = "isCreateClicked" placeholder="What will the epic be called?" >
-<button *ngIf = "!isCreateClicked" (click) = "onCreateClick()"> + Create Epic </button>
+<input (input) = "onInput($event)" (keyup.enter) = "onInputEnter()"  *ngIf = "isCreateClicked" placeholder="What will the epic be called?">
+<button *ngIf = "!isCreateClicked" (click) = "onCreateClick()" class="new-epic-button is-fullwidth p-3"> + Create Epic </button>
 </div>
 
