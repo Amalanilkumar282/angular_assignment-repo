@@ -52,7 +52,7 @@ export class EpicPanel {
       dueDate: 'None'
     }
     this.epics.push(newEpicObject);
-    this.newEpic = '';
+    this.isCreateClicked = !this.isCreateClicked
     // console.log(this.epics);
   }
 
