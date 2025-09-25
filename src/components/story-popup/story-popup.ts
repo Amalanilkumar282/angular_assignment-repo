@@ -13,8 +13,8 @@ export class StoryPopup {
   }
 
   
-  submitForm() {
-    // Just close the popup
-    this.closePopup();
+   submitForm() {
+    console.log('Story created!');
+    this.close.emit(); // auto close after creating
   }
 }

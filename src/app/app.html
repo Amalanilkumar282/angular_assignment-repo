@@ -1,16 +1,18 @@
-<app-navbar></app-navbar>
-
-
-<div>
-    <app-sprint-container></app-sprint-container>
-    
+<app-navbar (createStory)="openStoryPopup()"  (createEpic)="openCreateEpic()"></app-navbar>
+<div class="backlog-body">
+    <div class="epic-panel">
+        <app-epic-panel></app-epic-panel>
+    </div>
+    <div class="backlog">
+        <div>
+            <app-sprint-container></app-sprint-container>
+        </div>
+        <div>
+            <app-backlog-container></app-backlog-container>
+        </div>
+    </div>
 </div>
-<div>
-    <app-backlog-container></app-backlog-container>
-</div>
+<!-- L<button (click)="showPopup = true">Create Story</button> -->
 
-
-
-<button (click)="showPopup = true">Create Story</button>
-
-<app-story-popup *ngIf="showPopup" (close)="showPopup = false"></app-story-popup>
+<app-story-popup *ngIf="showStoryPopup" (close)="closeStoryPopup()"></app-story-popup>
+<app-create-epic *ngIf="showCreateEpic" (close)="closeCreateEpic()"></app-create-epic>
