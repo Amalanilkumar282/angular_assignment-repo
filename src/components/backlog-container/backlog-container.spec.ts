@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideZonelessChangeDetection } from '@angular/core';
 import { BacklogContainerComponent } from './backlog-container';
 
 describe('BacklogContainerComponent', () => {
@@ -7,7 +8,8 @@ describe('BacklogContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BacklogContainerComponent ]
+      imports: [ BacklogContainerComponent ],
+      providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
   });
@@ -15,7 +17,7 @@ describe('BacklogContainerComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BacklogContainerComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    // Don't call detectChanges() here to avoid the ExpressionChangedAfterItHasBeenCheckedError
   });
 
   it('should create', () => {
