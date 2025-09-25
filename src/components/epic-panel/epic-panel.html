@@ -1,4 +1,3 @@
-
 <div class="box">
   <div class="level">
     <div class="level-left">
@@ -14,9 +13,17 @@
     [title]="epic.title"
     [progress]="epic.progress"
     [startDate]="epic.startDate"
-    [dueDate]="epic.dueDate">
+    [dueDate]="epic.dueDate"
+    (viewDetails)="onEpicViewDetails($event)">
   </app-epic-panel-item>
+  
   <button *ngIf = "!isCreateClicked" (click) = "onCreateClick()"> + Create Epic </button>
-<input>
+  <input>
 </div>
 
+<!-- Epic View Component for corner window -->
+<app-epic-view 
+  [issue]="null"
+  [isModalOpen]="false"
+  (closeModal)="onCloseModal()">
+</app-epic-view>

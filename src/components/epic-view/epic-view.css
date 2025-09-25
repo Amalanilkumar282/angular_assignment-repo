@@ -1,0 +1,129 @@
+/* Epic Details Corner Window Styles */
+.epic-details-window {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 350px;
+  max-height: 80vh;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  animation: slideInFromRight 0.3s ease-out;
+}
+
+.epic-details-window .card {
+  margin: 0;
+  border-radius: 8px;
+  border: 1px solid #e1e5e9;
+}
+
+.epic-details-window .card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e1e5e9;
+}
+
+.epic-details-window .card-header-title {
+  color: #363636;
+  font-weight: 600;
+}
+
+.epic-details-window .card-header-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.epic-details-window .card-header-icon:hover {
+  color: #ff3860;
+}
+
+.epic-details-window .card-content {
+  padding: 1rem;
+}
+
+.epic-details-window .field {
+  margin-bottom: 0.75rem;
+}
+
+.epic-details-window .field:last-child {
+  margin-bottom: 0;
+}
+
+.epic-details-window .label {
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  color: #4a4a4a;
+}
+
+.epic-details-window .progress-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.epic-details-window .progress {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.epic-details-window .card-footer {
+  border-top: 1px solid #e1e5e9;
+}
+
+.epic-details-window .card-footer-item {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+  color: #3273dc;
+  font-weight: 500;
+}
+
+.epic-details-window .card-footer-item:hover {
+  background-color: #f8f9fa;
+  color: #2366d1;
+}
+
+/* Animation for the corner window */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .epic-details-window {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    max-height: 70vh;
+  }
+}
+
+/* Custom scrollbar for the window */
+.epic-details-window::-webkit-scrollbar {
+  width: 6px;
+}
+
+.epic-details-window::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.epic-details-window::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.epic-details-window::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
