@@ -15,9 +15,10 @@ interface EpicDetails {
 
 @Component({
   selector: 'app-epic-view',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './epic-view.html',
-  styleUrl: './epic-view.css'
+  styleUrls: ['./epic-view.css']
 })
 export class EpicView {
   @Input() issue: Issue | null = null;
