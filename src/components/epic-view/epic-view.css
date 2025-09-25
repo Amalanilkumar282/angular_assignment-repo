@@ -12,6 +12,18 @@
   animation: slideInFromRight 0.3s ease-out;
 }
 
+/* Full-screen overlay that sits behind the corner window */
+.epic-details-overlay {
+  position: fixed;
+  inset: 0;
+  background: transparent; /* keep transparent so it doesn't darken the screen */
+  z-index: 999; /* sit behind the window */
+}
+
+.epic-details-overlay .epic-details-window {
+  z-index: 1000; /* ensure the window is above the overlay */
+}
+
 .epic-details-window .card {
   margin: 0;
   border-radius: 8px;
