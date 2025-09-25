@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 import { EpicPanelItem } from './epic-panel-item';
 
@@ -8,7 +9,8 @@ describe('EpicPanelItem', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EpicPanelItem]
+      imports: [EpicPanelItem],
+      providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
 

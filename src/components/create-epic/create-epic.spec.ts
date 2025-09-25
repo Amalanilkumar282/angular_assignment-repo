@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 import { CreateEpic } from './create-epic';
 
@@ -8,7 +9,8 @@ describe('CreateEpic', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CreateEpic]
+      imports: [CreateEpic],
+      providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
 

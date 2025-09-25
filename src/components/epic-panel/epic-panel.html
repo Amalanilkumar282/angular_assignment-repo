@@ -16,11 +16,9 @@
     [dueDate]="epic.dueDate"
     (viewDetails)="onEpicViewDetails($event)">
   </app-epic-panel-item>
-  
-  <button *ngIf = "!isCreateClicked" (click) = "onCreateClick()"> + Create Epic </button>
-  <input>
+<input (input) = "onInput($event)" (keyup.enter) = "onInputEnter()"  *ngIf = "isCreateClicked" placeholder="What will the epic be called?">
+<button *ngIf = "!isCreateClicked" (click) = "onCreateClick()" class="new-epic-button p-3 is-centered"> + Create Epic </button>
 </div>
-
 <!-- Epic View Component for corner window -->
 <app-epic-view 
   [issue]="null"

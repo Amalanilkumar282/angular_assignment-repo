@@ -3,6 +3,7 @@ import { EpicPanelItem } from '../epic-panel-item/epic-panel-item';
 import { EpicView } from '../epic-view/epic-view';
 import { NgFor, NgIf } from '@angular/common';
 
+
 @Component({
   selector: 'app-epic-panel',
   imports: [EpicPanelItem, EpicView, NgFor, NgIf],
@@ -13,8 +14,8 @@ export class EpicPanel {
   @ViewChild(EpicView) epicViewComponent!: EpicView;
   
   isCreateClicked = false;
-  
-  epics = [
+  newEpic = '';
+ epics = [
     {
       title: 'Photo Gallery',
       progress: 50,
@@ -29,7 +30,7 @@ export class EpicPanel {
     },
     {
       title: 'Login',
-      progress: 0,
+      progress: 100,
       startDate: 'September 4,2025',
       dueDate: 'September 8,2025'
     }
@@ -38,6 +39,25 @@ export class EpicPanel {
   onCreateClick(){
     this.isCreateClicked = !this.isCreateClicked;
   }
+  onInput(event: Event){
+    var value = (event.target as HTMLInputElement).value;
+    this.newEpic = value;
+  }
+  onInputEnter(){
+    if (!this.newEpic.trim()) return;
+    const newEpicObject = {
+      title: this.newEpic,
+      progress:0,
+      startDate: 'None',
+      dueDate: 'None'
+    }
+    this.epics.push(newEpicObject);
+    this.isCreateClicked = !this.isCreateClicked
+    // console.log(this.epics);
+  }
+
+
+
 
   onEpicViewDetails(epicData: {title: string, progress: number, startDate: string, dueDate: string}) {
     // Update the epic details in the epic-view component
@@ -64,4 +84,4 @@ export class EpicPanel {
     if (progress === 100) return 'Done';
     return 'In Progress';
   }
-}
+};
