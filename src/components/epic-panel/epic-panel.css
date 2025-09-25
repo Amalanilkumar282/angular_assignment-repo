@@ -1,7 +1,7 @@
 :host {
   display: block;
   width: 250px;      
-  max-width: 100%;    
+  max-width: 100%;  
 }
 
 .box {
@@ -10,6 +10,8 @@
   background-color: #f7f7f7;
   display: flex;
   flex-direction: column;
+  max-height: 80vh;
+  overflow-y: scroll;
 }
 
 .new-epic-button{
